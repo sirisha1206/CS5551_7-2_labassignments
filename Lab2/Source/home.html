@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.css">
+    <style>
+        .kge-search-picker {
+            width: <DROPDOWN_MENU_WIDTH>;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
+        }
+        a, a:hover, a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .navbar {
+            padding: 15px 10px;
+            background: #fff;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 40px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-btn {
+            box-shadow: none;
+            outline: none !important;
+            border: none;
+        }
+
+
+        i, span {
+            display: inline-block;
+        }
+        .wrapper {
+            display: flex;
+            align-items: stretch;
+        }
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: #2b335b;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        #sidebar.active {
+            min-width: 80px;
+            max-width: 80px;
+            text-align: center;
+        }
+
+        #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
+            display: none;
+        }
+
+        #sidebar.active .sidebar-header strong {
+            display: block;
+        }
+
+        #sidebar ul li a {
+            text-align: left;
+        }
+
+        #sidebar.active ul li a {
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 0.85em;
+        }
+
+        #sidebar.active ul li a i {
+            margin-right:  0;
+            display: block;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        #sidebar.active ul ul a {
+            padding: 10px !important;
+        }
+
+        #sidebar.active a[aria-expanded="false"]::before, #sidebar.active a[aria-expanded="true"]::before {
+            top: auto;
+            bottom: 5px;
+            right: 50%;
+            -webkit-transform: translateX(50%);
+            -ms-transform: translateX(50%);
+            transform: translateX(50%);
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #2b335b;
+        }
+
+        #sidebar .sidebar-header strong {
+            display: none;
+            font-size: 1.8em;
+        }
+
+        #sidebar ul.components {
+            padding: 20px 0;
+            border-bottom: 1px solid #47748b;
+        }
+
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #2b335b;
+        }
+        #sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: #fff;
+            background: #2b335b;
+        }
+
+
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+            content: '\e259';
+            display: block;
+            position: absolute;
+            right: 20px;
+            font-family: 'Glyphicons Halflings';
+            font-size: 0.6em;
+        }
+        a[aria-expanded="true"]::before {
+            content: '\e260';
+        }
+
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #2b335b;
+        }
+
+        ul.CTAs {
+            padding: 20px;
+        }
+
+        ul.CTAs a {
+            text-align: center;
+            font-size: 0.9em !important;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+      .main-page{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+      }
+
+
+
+        /* ---------------------------------------------------
+            CONTENT STYLE
+        ----------------------------------------------------- */
+        #content {
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+
+        /* ---------------------------------------------------
+            MEDIAQUERIES
+        ----------------------------------------------------- */
+        @media (max-width: 768px) {
+            #sidebar {
+                min-width: 80px;
+                max-width: 80px;
+                text-align: center;
+                margin-left: -80px !important ;
+            }
+            a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+                top: auto;
+                bottom: 5px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            #sidebar.active {
+                margin-left: 0 !important;
+            }
+
+            #sidebar .sidebar-header h3, #sidebar .CTAs {
+                display: none;
+            }
+
+            #sidebar .sidebar-header strong {
+                display: block;
+            }
+
+            #sidebar ul li a {
+                padding: 20px 10px;
+            }
+
+            #sidebar ul li a span {
+                font-size: 0.85em;
+            }
+            #sidebar ul li a i {
+                margin-right:  0;
+                display: block;
+            }
+
+            #sidebar ul ul a {
+                padding: 10px !important;
+            }
+
+            #sidebar ul li a i {
+                font-size: 1.3em;
+            }
+            #sidebar {
+                margin-left: 0;
+            }
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+
+        .person {
+            border: 10px solid transparent;
+            margin-bottom: 25px;
+            width: 80%;
+            height: 80%;
+            opacity: 0.7;
+        }
+        .person:hover {
+            border-color: #f1f1f1;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+    <nav id="sidebar">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+
+        <div class="sidebar-header">
+            <h3>Smart Health</h3>
+            <strong>SH</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="home-click">
+                <a href="#home">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Home
+                </a>
+            </li>
+            <li class="about-click">
+                <a href="#about">
+                    <i class="glyphicon glyphicon-briefcase"></i>
+                    Project Description
+                </a>
+            </li>
+            <li class="contact-click">
+                <a href="#contact">
+                    <i class="glyphicon glyphicon-send"></i>
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <div id="content">
+        <div class="container-fluid" id="blankpage" style="height: 106%;"></div>
+        <div class="container-fluid" id="contact">
+            <img src="ourteam.jpg" width="100%" height="15%"/>
+            <div class="col-sm-3">
+                <a href="#demo" data-toggle="collapse" style="background-color: white">
+                    <img src="sirisha.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+                </a>
+                <div id="demo" class="collapse">
+                    <p class="text-center"><strong>Naga Sirisha Sunkara</strong></p><br>
+                    <p><strong><span class="glyphicon glyphicon-phone"></span>Phone:</strong> +1 913-257-6976</p>
+                    <p><strong><span class="glyphicon glyphicon-envelope"></span>Email:</strong> nsbz5@mail.umkc.edu</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <a href="#demo4" data-toggle="collapse" style="background-color: white">
+                    <img src="vinay.jpg" class="img-circle person" alt="Random Name" width="255" height="255" style="    width: 168px;  height: 212px;">
+                </a>
+                <div id="demo4" class="collapse">
+                    <p class="text-center"><strong>Vinay Santhosham</strong></p><br>
+                    <p><strong><span class="glyphicon glyphicon-phone"></span>Phone:</strong> +1 816-673-8193</p>
+                    <p><strong><span class="glyphicon glyphicon-envelope"></span>Email:</strong> vsvzw@mail.umkc.edu</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <a href="#demo2" data-toggle="collapse" style="background-color: white">
+                    <img src="bhavesh.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+                </a>
+                <div id="demo2" class="collapse">
+                    <p class="text-center"><strong>Bhavesh Polareddy</strong></p><br>
+                    <p><strong><span class="glyphicon glyphicon-phone"></span>Phone:</strong> +1 816-217-2712</p>
+                    <p><strong><span class="glyphicon glyphicon-envelope"></span>Email:</strong> vp5dt@mail.umkc.edu</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <a href="#demo3" data-toggle="collapse" style="background-color: white">
+                    <img src="vineeth.jpg" class="img-circle person" alt="Random Name" width="255" height="255" style="height: 210px;">
+                </a>
+                <div id="demo3" class="collapse">
+                    <p class="text-center"><strong>Vineeth Reddy Kottam</strong></p><br>
+                    <p><strong><span class="glyphicon glyphicon-phone"></span>Phone:</strong> +1 816-682-6735</p>
+                    <p><strong><span class="glyphicon glyphicon-envelope"></span>Email:</strong> vkpcw@mail.umkc.edu</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid" id="home" style="height:100%;width:50%">
+           <div class="row">
+                <script>
+                    (function() {
+                        var cx = '003318654583123334531:9jyoi0hh_bg';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                    })();
+                </script>
+
+                    <h3>Custom Search</h3>
+                <div class="col-sm-9">
+                    <gcse:search></gcse:search>
+                </div>
+
+            </div>
+                <div class="row">
+                    <h3>Google Knowledge Graph Search API</h3>
+                    <input type="text" id="myInput">
+                    <script type="text/javascript">
+                        KGSearchWidget('AIzaSyA211V7xMYIQZg_W2J0o-ULryh_POZ9oLg', document.getElementById("myInput"), {});
+                    </script>
+
+                </div>
+
+        </div>
+
+</div>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+        $(".home-click").click(function(){
+            $("#contact").hide();
+            $("#about").hide();
+            $("#home").show();
+            $("#blankpage").hide();
+        });
+        $(".about-click").click(function(){
+            $("#contact").hide();
+            $("#about").show();
+            $("#home").hide();
+            $("#blankpage").hide();
+        });
+        $(".contact-click").click(function(){
+            $("#contact").show();
+            $("#about").hide();
+            $("#home").hide();
+            $("#blankpage").hide();
+        });
+    });
+
+</script>
+</body>
+</html>
