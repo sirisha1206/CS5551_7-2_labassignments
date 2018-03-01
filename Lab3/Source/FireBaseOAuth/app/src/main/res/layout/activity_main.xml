@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sirishasunkara.firebaseoauth.MainActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:weightSum="1"
+    android:background="@drawable/bg">
+
+
+    <TextView android:text="Enter username" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview1"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.02"
+        android:layout_margin="3dp" />
+
+    <EditText
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/uiname"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.03" />
+
+    <TextView android:text="Enter password" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview2"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp" />
+
+    <EditText
+        android:id="@+id/uipwd"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tuname"
+        android:layout_weight="0.12"
+        android:inputType="textPassword"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Log In"
+        android:id="@+id/login"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/tlogin"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.01" />
+
+    <Button
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/resgister"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/register"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoNextPage"/>
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/Error"
+        android:layout_below="@+id/blogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        tools:paddingTop="-10dp" />
+</LinearLayout>

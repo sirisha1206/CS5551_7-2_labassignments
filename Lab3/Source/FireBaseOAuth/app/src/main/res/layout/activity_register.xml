@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_register"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.example.sirishasunkara.firebaseoauth.MainActivity"
+    android:weightSum="1"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Enter Username"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.05" />
+
+    <EditText
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/uiname"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.03" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tuname"
+        android:layout_weight="0.05"
+        android:text=" Enter Password"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/uipwd"
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.03"
+        android:fontFamily="sans-serif-medium"
+        android:inputType="textPassword"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <TextView
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Enter Email id"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/tuname"
+        android:layout_weight="0.05" />
+
+    <EditText
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/email"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.03" />
+
+    <TextView
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Enter phone number"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/tuname"
+        android:layout_weight="0.07" />
+
+    <EditText
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/uph"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.03" />
+
+
+    <Button
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/blogin"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/tpwd"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoNextPage" />
+
+</LinearLayout>
