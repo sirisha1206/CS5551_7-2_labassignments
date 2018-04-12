@@ -7,7 +7,6 @@ var port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname));
 
-
 MongoClient.connect('mongodb://sirishasunkara:siri1206@ds121955.mlab.com:21955/sirishasunkara', (err, client) => {
     if (err) return console.log(err)
     db = client.db('sirishasunkara') 
