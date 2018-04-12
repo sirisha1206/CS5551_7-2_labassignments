@@ -1,0 +1,26 @@
+{
+  "name": "meanapp",
+  "version": "1.0.0",
+  "description": "lab5",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sirisha",
+  "license": "ISC",
+  "dependencies": {
+    "body-mass-index": "^1.0.0",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "dialog": "^0.3.1",
+    "drugs": "^1.0.8",
+    "express": "^4.16.3",
+    "flash": "^1.1.0",
+    "jade": "^1.11.0",
+    "js-alert": "^1.0.4",
+    "mongodb": "^3.0.5",
+    "nodemon": "^1.17.3",
+    "popups": "^1.1.3"
+  }
+}
